@@ -1,1 +1,8 @@
 # TS-7250-I-O-user-space-program-
+
+Creating a Square Wave
+
+Practice on TS-7250 I/O registers from a user space program. 
+The TS-7250 has 20 Digital I/O lines available which are located on the two headers labeled “DIO” and “LCD”. All of the I/O lines can be programmed individually as inputs or outputs. All I/O registers are 8 bits wide and are aligned on 32-bit boundaries with each register being given a letter name such as Port A and Port B. Each of the bottom 8 bits of a register correspond to an individual I/O line, while the top 24 bits of each register are not modified when written to and read back 0’s. Every I/O pin has two registers used to access it: a data register and a data direction register, which is denoted as the DDR register. Modifying bits in the DDR register changes whether an I/O pin is an input or an output, while writing to or reading from the data register changes/returns the value of the pins.
+
+In the project an auxiliary board which contains 5 push buttons, 3 LEDS and a speaker are provided. The 5 push buttons and 3 LEDS are connected to the I/O lines associated with port B, while the speaker is connected to the I/O line associated with bit 1 of port F. For this part of the project, the program first scans for user input. Valid entries are integers from 0 to 4. Depending on the number entered, the corresponding push button will then be used to activate the generation of a square wave on the speaker. This is done by constantly toggling the value of the speaker’s I/O line, which is located on Port F. For example, if the user enters a “1”, then the square wave should start after the button connected to port B1 is pushed. If any other button is pushed, it should be ignored.
